@@ -1,24 +1,24 @@
 <title>Mousetrap Car Simulation</title>
 
+<body>
+    <div class="main">
+        <h1>Mousetrap Car Simulation</h1>
+        <p id="description">This website is built to remove the process of doing calculations to calculate the performance of a mousetrap car. It was built by a team of STEM students at Templeton Seconday. To validify, type in your design perameters, and this simulator will do the rest.
+            All measurements are done in degrees and centimeters.
+        </p>
+        <form>
+            <label for="formTotalMass">Total Mass (kg):&emsp;</label> 
+            <input type="number"   id="formTotalMass" value='20'> <br>
+            <label for="formDriveWheelDiameter">Drive Wheel Diameter (m):&emsp;</label>
+            <input type="number"  id="formDriveWheelDiameter" value='2'><br>
+            <label for="formAxleDiameter">Axle Diameter (m):&emsp;</label> 
+            <input type="number"  id="formAxleDiameter" value='30'> <br>
+            <label for="formArmLength">Arm Length (m):&emsp;</label> 
+            <input type="number"  id="formArmLength" value='56'> <br>
+        </form>
 
-
-<div class="main">
-    <h1>Mousetrap Car Simulation</h1>
-    <p id="description">This website is built to remove the process of doing calculations to calculate the performance of a mousetrap car. It was built by a team of STEM students at Templeton Seconday. To validify, type in your design perameters, and this simulator will do the rest.
-        All measurements are done in degrees and centimeters.
-    </p>
-    <form>
-        <label for="formTotalMass">Total Mass (kg):&emsp;</label> 
-        <input type="number"   id="formTotalMass" value='20'> <br>
-        <label for="formDriveWheelDiameter">Drive Wheel Diameter:&emsp;</label>
-        <input type="number"  id="formDriveWheelDiameter" value='2'><br>
-        <label for="formAxleDiameter">Axle Diameter:&emsp;</label> 
-        <input type="number"  id="formAxleDiameter" value='30'> <br>
-        <label for="formArmLength">Arm Length:&emsp;</label> 
-        <input type="number"  id="formArmLength" value='56'> <br>
-    </form>
-
-</div>
+    </div>
+</body>
 
 <canvas height="200px"  width="200px" id="canvas"></canvas>
 <script src="index.js"></script>
