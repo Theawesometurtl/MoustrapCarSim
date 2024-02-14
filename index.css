@@ -1,0 +1,30 @@
+.main {
+    background-color: lightcyan;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 5pt;
+    padding: 5pt;
+}
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+#description {
+    text-align: center;
+    margin: 5pt, 20pt;
+}
+
+form {
+    float: left;
+    margin-left: 40pt;
+}
+
+label {
+    font-size: medium;
+}
+
+input {
+    max-width: fit-content;
+}
+
