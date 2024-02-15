@@ -1,11 +1,13 @@
-export {start};
+export {start, ctx, canvas};
 
-function start() {
-    console.log('hello');
-    const canvas = document.querySelector('canvas');
+const canvas = document.querySelector('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+function start() {
+    console.log('hello');
+    
 
 
 
