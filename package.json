@@ -2,7 +2,7 @@
   "name": "mousetrapCarSimulation",
   "version": "3.0.2",
   "description": "mousetap",
-  "main": "index.js",
+  "main": "index.ts",
   "author": "Tania Rascia",
   "license": "MIT",
   "scripts": {

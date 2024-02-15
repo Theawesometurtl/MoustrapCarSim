@@ -7,6 +7,5 @@
       "jsx": "react",
       "allowJs": false,
       "moduleResolution": "node",
-      "exclude": ["node_modules"],
     }
   }

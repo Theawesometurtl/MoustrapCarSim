@@ -10,15 +10,20 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.([cm]?ts|tsx)$/, loader: "ts-loader",
-        exclude: /node_modules/,
+        test: /\.([cm]?ts|tsx)$/, 
+        loader: "ts-loader",
+        options: { allowTsInNodeModules: true },
+        exclude: /node_modules/, 
+        exclude: /named-references/
       },
       
       // Images: Copy image files to build folde
-      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
+      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource',
+    exclude: /node_modules/,},
 
       // Fonts and SVGs: Inline files
-      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
+      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline',
+    exclude: /node_modules/,},
     ],
   },
 
@@ -55,12 +60,13 @@ module.exports = {
       favicon: paths.src + '/images/favicon.png',
       template: paths.src + '/template.html', // template file
       filename: 'index.html', // output file
+      // chunks: [paths.src + '/index.ts', paths.src + '/styles/index.scss']
     }),
   ],
 
   resolve: {
     modules: [paths.src, 'node_modules'],
-    extensions: ['.json', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx','.json', '.ts', '.tsx'],
     alias: {
       '@': paths.src,
       assets: paths.public,
