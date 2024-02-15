@@ -1,6 +1,6 @@
 
 import '@/styles/index.scss';
-import { start } from './js/setUp';
+import { start } from './ts/setUp';
 
 start();
 

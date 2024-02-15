@@ -7,14 +7,12 @@ function start() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const scale = 7
 
-    const errorMessage = document.getElementById('errorMessage');
 
-    window.totalMass = document.getElementById('formTotalMass').value;
-    window.driveWheelDiameter = document.getElementById('formDriveWheelDiameter').value;
-    window.axleDiameter = document.getElementById('formAxleDiameter').value;
-    window.armLength = document.getElementById('formArmLength').value;
+    let totalMass = (<HTMLInputElement>document.getElementById('formTotalMass')).value;
+    let driveWheelDiameter = (<HTMLInputElement>document.getElementById('formDriveWheelDiameter')).value;
+    let axleDiameter = (<HTMLInputElement>document.getElementById('formAxleDiameter')).value;
+    let armLength = (<HTMLInputElement>document.getElementById('formArmLength')).value;
 
 
     function main() {
