@@ -15,7 +15,7 @@ class Arm {
 
     update(position: coordinate, armLength: number, armRotation: number) {
         this.position = position;
-        this.armDimensions = [armLength, 10];
+        this.armDimensions = [armLength, (armLength/2)**0.3];
         this.armRotation = armRotation; 
     }
     
@@ -27,7 +27,7 @@ class Arm {
     draw() {
         ctx.strokeStyle = 'black';
         ctx.fillStyle = 'gray';
-        ctx.lineWidth = 5
+        ctx.lineWidth = this.armDimensions[1]
         let pos1 = <[number, number]> [this.position[0] -(this.armDimensions[1]/2) * Math.cos(this.armRotation), this.position[1] -(this.armDimensions[1]/2) * Math.sin(this.armRotation)]
         let pos2 = <[number, number]> [this.position[0] +(this.armDimensions[1]/2) * Math.cos(this.armRotation), this.position[1] +(this.armDimensions[1]/2) * Math.sin(this.armRotation)]
         let pos3 = <[number, number]> [pos2[0] + Math.cos(this.armRotation) * this.armDimensions[0], pos2[1] + Math.sin(this.armRotation) * this.armDimensions[0]];

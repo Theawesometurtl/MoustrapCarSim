@@ -1,3 +1,4 @@
-export { PIXEL_SCALAR };
+export { PIXEL_SCALAR, PIXEL_SCALAR_STATIC };
 
-const PIXEL_SCALAR = 20;
+const PIXEL_SCALAR = 3;
+const PIXEL_SCALAR_STATIC = 10;
