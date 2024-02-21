@@ -3,7 +3,8 @@ import { Arm } from "./arm";
 import { Wheel } from "./wheel";
 import { Chassis } from "./chassis";
 import { ctx, canvas } from "./setUp";
-export {MousetrapCar}
+import { cmToPixels } from "./cmToPixels";
+export { MousetrapCar }
 
 
 class MousetrapCar {
@@ -17,8 +18,8 @@ class MousetrapCar {
     armLength: number; armAngle: number;
     mousetrapPosition: coordinate; mousetrapAngle: number;
     
-    constructor() {
-        this.chassisLength = 500;
+    constructor(chassisLength: number) {
+        this.chassisLength = cmToPixels(chassisLength);
         this.chassisPostion = [300, 400];
         this.armLength = 0;
         this.armAngle = 0;
@@ -36,7 +37,7 @@ class MousetrapCar {
         this.mousetrapPosition = [position[0], position[1] - (this.backWheelRadius)];
         this.frontWheel.update([this.mousetrapPosition[0] + this.chassisLength/2, this.mousetrapPosition[1] + this.backWheelRadius -this.frontWheelRadius], this.frontWheelRadius)
         this.backWheel.update([this.mousetrapPosition[0] - this.chassisLength/2, this.mousetrapPosition[1]], this.backWheelRadius);
-        this.arm.update([position[0], position[1] - (this.frontWheelRadius + this.backWheelRadius)/2], 300, this.mousetrapAngle);
+        this.arm.update([position[0], position[1] - (this.frontWheelRadius + this.backWheelRadius)/2], this.armLength, this.mousetrapAngle);
         this.chassis.update(this.mousetrapPosition, this.chassisLength,this.frontWheelRadius, this.backWheelRadius);
     }
 
@@ -51,13 +52,5 @@ class MousetrapCar {
         ctx.lineTo(...(this.chassis.getChassisAxleCoords(this.backWheelRadius, this.frontWheelRadius)[0]));
         ctx.stroke();
 
-        // drawWheel('red', frontWheelPosition, frontWheelRadius, lineWidth); // back wheel
-        // drawWheel('red', backWheelPosition, backWheelRadius, lineWidth); // front wheel
-        // ctx.fillStyle = 'yellow';
-        // ctx.lineWidth = lineWidth;
-        // ctx.strokeStyle = 'black';
-        // ctx.fillRect(chassisPostion[0], chassisPostion[1], chassisDimensions[0], chassisDimensions[1]);//chassis
-        // drawMousetrap(moustrapPosition, mousetrapAngle)
-        // ctx.moveTo(chassisPostion[0], chassisPostion[1]);
     }
 }
