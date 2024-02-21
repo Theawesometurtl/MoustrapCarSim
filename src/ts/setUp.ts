@@ -21,6 +21,6 @@ function start() {
 
 
 
-    setInterval(main, 1000);
+    setInterval(main, 40);
 
 }

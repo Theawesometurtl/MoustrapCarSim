@@ -17,6 +17,14 @@ class Chassis {
         this.chassisAxleCoords = this.getChassisAxleCoords(backWheelRadius, frontWheelRadius);
     }
 
+    update(position: coordinate, chassisLength: number, frontWheelRadius: number, backWheelRadius: number) {
+        this.position = position;
+        this.chassisDimensions = [chassisLength, 10];
+        this.frontWheelRadius = frontWheelRadius;
+        this.backWheelRadius = backWheelRadius;
+        this.chassisAxleCoords = this.getChassisAxleCoords(backWheelRadius, frontWheelRadius);
+    }
+
     draw() {
         ctx.strokeStyle = 'black';
         ctx.fillStyle = 'gray';

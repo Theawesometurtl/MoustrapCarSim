@@ -12,11 +12,14 @@ function main() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     RaceTrack.groundLevel = canvas.height - 70;
     raceTrack.draw();
-    mousetrapCar.chassisPostion = [100, RaceTrack.groundLevel];
     mousetrapCar.armLength = 50;
     mousetrapCar.mousetrapAngle += 0.1;
+    mousetrapCar.update([mousetrapCar.mousetrapPosition[0] + 10, RaceTrack.groundLevel]);
     mousetrapCar.draw();
-    
+    if (mousetrapCar.mousetrapAngle > 2*Math.PI) {
+        mousetrapCar.mousetrapAngle = Math.PI;
+        mousetrapCar.update([500, RaceTrack.groundLevel])
+    }
 }
 
 

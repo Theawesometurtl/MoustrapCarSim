@@ -12,6 +12,12 @@ class Arm {
         this.armDimensions = [armLength, 10];
         this.armRotation = armRotation; 
     }
+
+    update(position: coordinate, armLength: number, armRotation: number) {
+        this.position = position;
+        this.armDimensions = [armLength, 10];
+        this.armRotation = armRotation; 
+    }
     
     getStringAttachmentCoord(): coordinate {
         let cord = <[number, number]> [this.position[0] + Math.cos(this.armRotation) * this.armDimensions[0], this.position[1] + Math.sin(this.armRotation) * this.armDimensions[0]];
