@@ -35,7 +35,6 @@ class MousetrapCar {
     update() {
     }
     draw(lineWidth: number = 5) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
         this.arm.draw();
         this.backWheel.draw();
         this.frontWheel.draw();

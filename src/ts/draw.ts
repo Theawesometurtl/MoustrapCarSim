@@ -1,26 +1,22 @@
 import { ctx, canvas } from "./setUp"
 import { MousetrapCar } from "./mousetrapCar" 
+import { RaceTrack } from "./raceTrack";
 export {main}
 
-let mousetrapCar = new MousetrapCar()
+let mousetrapCar = new MousetrapCar();
+let raceTrack = new RaceTrack();
+
 
 
 function main() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    mousetrapCar.chassisPostion = [100, 100];
+    RaceTrack.groundLevel = canvas.height - 70;
+    raceTrack.draw();
+    mousetrapCar.chassisPostion = [100, RaceTrack.groundLevel];
     mousetrapCar.armLength = 50;
     mousetrapCar.mousetrapAngle += 0.1;
     mousetrapCar.draw();
-
-
-    // drawWheel('red', frontWheelPosition, frontWheelRadius, lineWidth); // back wheel
-    // drawWheel('red', backWheelPosition, backWheelRadius, lineWidth); // front wheel
-    // ctx.fillStyle = 'yellow';
-    // ctx.lineWidth = lineWidth;
-    // ctx.strokeStyle = 'black';
-    // ctx.fillRect(chassisPostion[0], chassisPostion[1], chassisDimensions[0], chassisDimensions[1]);//chassis
-    // drawMousetrap(moustrapPosition, mousetrapAngle)
-    // ctx.moveTo(chassisPostion[0], chassisPostion[1]);
+    
 }
 
 
