@@ -8,6 +8,7 @@ export { main };
 let mousetrapCar = new MousetrapCar(10);
 let staticMousetrapCar = new MousetrapCar(10);
 let raceTrack = new RaceTrack();
+let raceTime = 100;
 
 const totalMass = (<HTMLInputElement>document.getElementById('formTotalMass'));
 const driveWheelDiameter = (<HTMLInputElement>document.getElementById('formDriveWheelDiameter'));
@@ -26,20 +27,20 @@ function main() {
     mousetrapCar.chassisLength =            cmToPixels(Number(chassisLength.value))         ;
     mousetrapCar.frontWheelRadius =         cmToPixels(Number(frontWheelDiameter.value)/2)  ;
     mousetrapCar.backWheelRadius =          cmToPixels(Number(driveWheelDiameter.value)/2)  ; 
-    mousetrapCar.mousetrapAngle += 0.1;
-    mousetrapCar.update([mousetrapCar.mousetrapPosition[0] + 10, RaceTrack.groundLevel]);
+    mousetrapCar.mousetrapAngle += Math.PI/raceTime;
+    mousetrapCar.update([mousetrapCar.mousetrapPosition[0] + (canvas.width-200)/raceTime, RaceTrack.groundLevel]);
     mousetrapCar.draw();
 
     staticMousetrapCar.armLength =          PIXEL_SCALAR_STATIC*(Number(armLength.value));
     staticMousetrapCar.chassisLength =      PIXEL_SCALAR_STATIC*(Number(chassisLength.value));
     staticMousetrapCar.frontWheelRadius =   PIXEL_SCALAR_STATIC*(Number(frontWheelDiameter.value)/2);
     staticMousetrapCar.backWheelRadius =    PIXEL_SCALAR_STATIC*(Number(driveWheelDiameter.value)/2); 
-    staticMousetrapCar.mousetrapAngle += 0.1;
+    staticMousetrapCar.mousetrapAngle += Math.PI/raceTime;
     staticMousetrapCar.update([canvas.width - staticMousetrapCar.chassisLength/2 -100, 300]);
     staticMousetrapCar.draw();
     if (mousetrapCar.mousetrapAngle > 2*Math.PI) {
         mousetrapCar.mousetrapAngle = Math.PI;
-        mousetrapCar.update([500, RaceTrack.groundLevel])
+        mousetrapCar.update([mousetrapCar.chassisLength/2 + mousetrapCar.backWheelRadius, RaceTrack.groundLevel])
         staticMousetrapCar.mousetrapAngle = Math.PI;
     }
 }
