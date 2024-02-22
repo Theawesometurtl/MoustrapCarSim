@@ -1,11 +1,11 @@
-export {start};
+import { main } from "./draw";
+export {start,};
+
+
 
 function start() {
-    console.log('hello');
-    const canvas = document.querySelector('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    
+    
 
 
 
@@ -15,13 +15,8 @@ function start() {
     let armLength = (<HTMLInputElement>document.getElementById('formArmLength')).value;
 
 
-    function main() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.strokeStyle = 'black';
-        ctx.lineWidth = .5;
-    }
 
 
-    setInterval(main, 100);
+    setInterval(main, 40);
 
 }
