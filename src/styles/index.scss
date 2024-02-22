@@ -17,7 +17,7 @@ form {
     position: absolute;
     top: 150px;
     float: left;
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 form label {
@@ -30,3 +30,10 @@ form input {
     display: inline-block;
     width: calc(100% - 250px);
 }
+
+// usful later
+// @media (max-width: 800px) {
+//     form {
+//       flex-direction: column;
+//     }
+// }
