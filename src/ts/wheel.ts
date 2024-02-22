@@ -1,5 +1,6 @@
 import { coordinate } from "./types";
-import { ctx } from "./setUp"
+import { ctx } from "../"
+import { MousetrapCar } from "./mousetrapCar";
 export {Wheel}
 
 
@@ -7,8 +8,10 @@ class Wheel {
     position: coordinate;
     radius: number;
     axleRadius: number;
+    mousetrapCar: MousetrapCar
 
-    constructor(position: coordinate, radius: number, axleRadius: number) {
+    constructor(position: coordinate, radius: number, axleRadius: number, mousetrapCar: MousetrapCar) {
+        this.mousetrapCar = mousetrapCar;
         this.position = position;
         this.radius = radius;
         this.axleRadius = axleRadius;
@@ -22,8 +25,9 @@ class Wheel {
         ctx.fillStyle = colour;
         ctx.lineWidth = lineWidth;
         ctx.strokeStyle = '#ffffff';
+        let pos = <[number, number]> this.mousetrapCar.rotate(this.position)
         ctx.beginPath();
-        ctx.arc(...this.position, this.radius, 0, 2 * Math.PI, false);
+        ctx.arc(...pos, this.radius, 0, 2 * Math.PI, false);
         ctx.fill();
     }
 }

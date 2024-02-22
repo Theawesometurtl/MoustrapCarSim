@@ -1,14 +1,10 @@
 import { main } from "./draw";
-export {start, ctx, canvas};
+export {start,};
 
-const canvas = document.querySelector('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth/1.3;
-    canvas.height = window.innerHeight/1.3;
+
 
 function start() {
-
-    console.log('hello');
+    
     
 
 
