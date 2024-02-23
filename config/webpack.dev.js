@@ -1,21 +1,10 @@
 const { merge } = require('webpack-merge')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const paths = require('./paths')
 const common = require('./webpack.common')
 
 module.exports = merge(common, {
   // Set the mode to development or production
   mode: 'development',
-
-  plugins: [
-    new HtmlWebpackPlugin({
-    title: 'Mousetrap Car Simulation',
-    favicon: paths.src + '/images/favicon.png',
-    template: paths.src + '/template.html', // template file
-    filename: 'index.html', // output file
-    // chunks: [paths.src + '/index.ts', paths.src + '/styles/index.scss']
-  }),],
 
   // Control how source maps are generated
   devtool: 'inline-source-map',
