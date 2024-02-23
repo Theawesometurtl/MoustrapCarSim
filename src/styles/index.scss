@@ -14,20 +14,17 @@ h1 {
 }
 
 form {
-    position: absolute;
     top: 150px;
-    float: left;
-    margin-left: 5%;
+    float: right;
+    margin-right: 10%;
 }
 
 form label {
     font-size: medium;
-    display: inline-block;
     width: 250px;
 }
 
-form input {
-    display: inline-block;
+form label input {
     width: calc(100% - 250px);
 }
 
