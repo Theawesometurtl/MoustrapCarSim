@@ -2,12 +2,13 @@ import { ctx, canvas } from "../";
 import { MousetrapCar } from "./mousetrapCar";
 import { RaceTrack } from "./raceTrack";
 import { DELAY_PER_FRAME, PIXEL_SCALAR, PIXEL_SCALAR_STATIC } from "./constants";
+import { simulate } from "./simulationLogic";
 export { main };
 
 let mousetrapCar = new MousetrapCar(10);
 let staticMousetrapCar = new MousetrapCar(10);
 let raceTrack = new RaceTrack();
-let raceTime = 100;
+let raceTime = 5;
 let raceFrames = (raceTime * 1000) / DELAY_PER_FRAME
 let flipHeight = 0;
 let flip = false;
@@ -25,7 +26,7 @@ const mouseTrapForce = (<HTMLInputElement>document.getElementById('formMousetrap
 
 
 function main() {
-    raceTime = Number(lapTime.value);
+    // raceTime = Number(lapTime.value);
     raceFrames = (raceTime * 1000) / DELAY_PER_FRAME
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     RaceTrack.groundLevel = canvas.height - 70;
@@ -50,14 +51,18 @@ function main() {
         flipHeight+=3;
     
     } else {
-        mousetrapCar.update([mousetrapCar.mousetrapPosition[0] + (canvas.width+RaceTrack.endPosition)/raceFrames, RaceTrack.groundLevel]);
+        let x = mousetrapCar.mousetrapPosition[0] + (canvas.width+RaceTrack.endPosition)/raceFrames
+        mousetrapCar.update([x, RaceTrack.groundLevel]);
     }
     mousetrapCar.draw();
 
     if (mousetrapCar.mousetrapAngle > 2*Math.PI) {
         mousetrapCar.mousetrapAngle = Math.PI;
         mousetrapCar.update([mousetrapCar.chassisLength/2 + mousetrapCar.backWheelRadius, RaceTrack.groundLevel])
+        // raceTime = simulate(Number(armLength.value)/100, Number(axleDiameter.value)/200, Number(totalMass.value)/1000, Number(driveWheelDiameter.value)/200, Number(totalMass.value)/2000)[1];
         staticMousetrapCar.mousetrapAngle = Math.PI;
         flipHeight = 0;
-    }
+        raceTime = Number(lapTime.value)
+        console.log(raceTime);
+        }
 }
